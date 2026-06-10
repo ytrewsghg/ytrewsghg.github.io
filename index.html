@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>被骗的年轻人：网络诈骗离我们有多近？</title>
+  <meta name="description" content="数据新闻专题：基于公安部、CNNIC等公开数据，深度解析年轻人网络诈骗现状">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-logo">数读·反诈</a>
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#intro">导读</a></li>
+      <li><a href="#data">数据</a></li>
+      <li><a href="#reasons">青年</a></li>
+      <li><a href="#types">类型</a></li>
+      <li><a href="#cases">案例</a></li>
+      <li><a href="#history">演进</a></li>
+      <li><a href="#ai-fraud">AI</a></li>
+      <li><a href="#profile">画像</a></li>
+      <li><a href="#interactive">互动</a></li>
+      <li><a href="#guide">指南</a></li>
+      <li><a href="#refs">文献</a></li>
+    </ul>
+  </nav>
+
+  <!-- ① 首页封面 -->
+  <header class="hero" id="hero">
+    <div class="hero-inner">
+      <p class="hero-kicker" data-aos="fade-up">数据新闻专题 · 2025</p>
+      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+        被骗的<br><em>年轻人</em>
+      </h1>
+      <p class="hero-deck" data-aos="fade-up" data-aos-delay="200">
+        网络诈骗离我们有多近？
+      </p>
+      <div class="hero-lead prose" data-aos="fade-up" data-aos-delay="300">
+        <p>2023年，公安部通报：电信网络诈骗受害者中，18—40岁占比<strong>62.1%</strong>，平均年龄仅37岁。2025年3月，湖北省公安厅发布全省电诈受骗人画像：16—35岁青年占<strong>45.86%</strong>，00后占比21.5%，同比上升6.37个百分点。</p>
+        <p>这不是发生在新闻里的遥远犯罪。它发生在宿舍、在兼职群、在恋爱App、在一条看似正常的快递短信里。本文基于公安部、国家反诈中心、中国新闻网、CNNIC第55次统计报告等公开资料，试图回答：当11.08亿中国人已接入互联网，年轻人为何屡屡成为诈骗分子的"首选目标"？</p>
+      </div>
+      <div class="hero-metrics" data-aos="fade-up" data-aos-delay="400">
+        <div class="metric-card io-animate">
+          <span class="metric-num" data-target="25.8">0</span>
+          <span class="metric-unit">万起</span>
+          <span class="metric-label">2025年全国侦破电诈案件</span>
+        </div>
+        <div class="metric-card io-animate">
+          <span class="metric-num" data-target="88.4">0</span>
+          <span class="metric-unit">%</span>
+          <span class="metric-label">十大高发类型占比</span>
+        </div>
+        <div class="metric-card io-animate">
+          <span class="metric-num" data-target="674.7">0</span>
+          <span class="metric-unit">万人次</span>
+          <span class="metric-label">2025年见面劝阻</span>
+        </div>
+      </div>
+      <a href="#intro" class="scroll-hint" aria-label="向下滚动">向下阅读</a>
+    </div>
+    <svg class="wave-bottom" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C360,80 720,0 1440,40 L1440,80 L0,80 Z" fill="#F8F6F1"/>
+    </svg>
+  </header>
+
+  <main>
+    <!-- 导读 -->
+    <section class="section section-cream" id="intro">
+      <div class="container layout-magazine">
+        <aside class="sidebar-note" data-aos="fade-right">
+          <span class="note-label">编者按</span>
+          <p>本专题为新闻传播专业数据新闻作品，所有统计数据均来自公开权威来源，所有案例均来自媒体报道或司法机关通报。</p>
+        </aside>
+        <article class="article-body" data-aos="fade-up">
+          <h2 class="section-head">当"安全账户"出现在你的聊天框里</h2>
+          <p class="drop-cap">2024年6月，公安部公布十大高发电信网络诈骗类型，十种常见类型发案占比近88.4%。刷单返利居首，虚假投资理财个案损失最大，虚假购物服务发案量跃居第三——三类骗局，恰好对应大学生兼职、职场新人理财、年轻消费者网购三大生活场景。</p>
+          <p>与此同时，第55次《中国互联网络发展状况统计报告》显示：截至2024年12月，我国网民规模达11.08亿人，10—29岁网民合计占26.1%；共青团中央监测数据显示，青年互联网普及率高达97.2%。高在线时长、高消费意愿、低社会经验的叠加，构成了一条清晰的"受骗路径"。</p>
+          <p>本文将通过数据可视化、真实案例叙事与互动体验，带你进入诈骗的完整链条——从第一通短信，到最后一笔转账。</p>
+          <div class="pull-quote">
+            <blockquote>"诈骗从未远离，它就在你的手机屏幕里。"</blockquote>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="wave-divider wave-divider-alt" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 Q360,60 720,30 T1440,30 L1440,60 L0,60 Z" fill="#fff"/></svg>
+    </div>
+
+    <!-- ② 诈骗现状数据分析 -->
+    <section class="section" id="data">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-num">01</span>
+          <h2 class="section-head">诈骗现状：数据里的"降温"与"升温"</h2>
+          <p class="section-deck">打击力度持续加大，但犯罪手法翻新速度更快</p>
+        </header>
+
+        <div class="prose intro-block">
+          <p><strong>背景：</strong>电信网络诈骗是我国发案最多、上升最快、人民群众反映最强烈的犯罪类型之一。2022年12月1日，《反电信网络诈骗法》正式施行，国家反诈中心、工信部、人民银行形成联动治理体系。</p>
+          <p><strong>现象：</strong>从全国侦破案件数看，2024年破获29.4万起，2025年侦破25.8万起，高发势头得到遏制；但从湖北等地个案数据看，00后受骗占比上升、线下转账占比达30%，说明诈骗正在"精耕细作"。</p>
+        </div>
+
+        <div class="chart-row">
+          <div class="chart-panel io-chart" data-aos="fade-up">
+            <h3>全国侦破电诈案件趋势</h3>
+            <div id="chartTrend" class="chart"></div>
+            <div class="data-note">
+              <strong>数据解读：</strong>2024—2025年侦破案件数连续下降，与公安部"断流""拔钉""斩链"专项行动及国际执法合作密切相关。2025年，7600余名妙瓦底涉诈嫌疑人被押解回国。需要警惕的是：发案下降不等于风险消失——诈骗分子正转向AI换脸、线下黄金寄递等更难追踪的方式。
+            </div>
+          </div>
+          <div class="chart-panel io-chart" data-aos="fade-up" data-aos-delay="100">
+            <h3>电诈受害者年龄分布（2023·全国）</h3>
+            <div id="chartAge" class="chart"></div>
+            <div class="data-note">
+              <strong>数据解读：</strong>公安部2024年6月通报显示，2023年受害者平均年龄37岁，18—40岁占62.1%。这意味着"被骗的不仅是老人"——青年群体因网络活跃度高、兼职与消费需求强，反而接触诈骗入口更多。年龄分布呈现"年轻化"与"全龄化"并存特征。
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-banner io-animate">
+          <div class="stat-item"><strong class="counter" data-target="36">0</strong><span>2025年拦截诈骗电话（亿次）</span></div>
+          <div class="stat-item"><strong class="counter" data-target="3151">0</strong><span>2024年紧急拦截涉案资金（亿元）</span></div>
+          <div class="stat-item"><strong class="counter" data-target="477.8">0</strong><span>2024年见面劝阻（万人次）</span></div>
+          <div class="stat-item"><strong class="counter" data-target="183.8">0</strong><span>2024年资金预警指令（万条）</span></div>
+        </div>
+
+        <div class="prose summary-block">
+          <h4>本章小结</h4>
+          <p>宏观数据传递双重信号：治理成效显著，但犯罪形态持续演化。对年轻人而言，关键不在"会不会遇到诈骗"，而在"遇到时能否识别"。下文将进一步拆解：为什么是年轻人？</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ③ 为什么年轻人成为主要受害者 -->
+    <section class="section section-cream" id="reasons">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-num">02</span>
+          <h2 class="section-head">为什么年轻人成为主要受害者？</h2>
+          <p class="section-deck">不是因为他们"笨"，而是因为诈骗精准命中了他们的生活结构</p>
+        </header>
+
+        <div class="infographic-grid">
+          <div class="info-card" data-aos="fade-up">
+            <svg class="info-icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="#E8F4F8"/><path d="M20 44V28l12-8 12 8v16" stroke="#4A90A4" stroke-width="2" fill="none"/></svg>
+            <h3>数字原住民的高暴露</h3>
+            <p>CNNIC第55次报告显示，20—29岁网民占13.1%，10—19岁占13.0%。青年互联网普及率97.2%，意味着几乎每一次社交、购物、求职都在线上完成——诈骗入口与日常生活完全重叠。</p>
+          </div>
+          <div class="info-card" data-aos="fade-up" data-aos-delay="80">
+            <svg class="info-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="16" width="40" height="32" rx="4" fill="#FFF3E8" stroke="#E8A87C" stroke-width="2"/><path d="M20 28h24M20 36h16" stroke="#D94841" stroke-width="2"/></svg>
+            <h3>经济压力与"轻松赚钱"</h3>
+            <p>公安部指出，刷单返利受骗者多为在校学生、低收入群体及无业人员。湖北2025年数据显示，00后占比21.5%且持续上升——兼职需求与"小额返利"话术形成精准匹配。</p>
+          </div>
+          <div class="info-card" data-aos="fade-up" data-aos-delay="160">
+            <svg class="info-icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="24" r="10" fill="#FCEAE9"/><path d="M16 52c0-9 7-16 16-16s16 7 16 16" stroke="#D94841" stroke-width="2" fill="none"/></svg>
+            <h3>社会经验与情感缺口</h3>
+            <p>湖北省公安厅研判：青年群体"长时间驻足网络空间、物质和精神需求旺盛、社会经验不足"。网络婚恋交友类占7.02%，"杀猪盘"从情感信任切入，再导向投资陷阱。</p>
+          </div>
+        </div>
+
+        <div class="chart-panel io-chart" data-aos="fade-up">
+          <h3>2025年湖北省青年受骗场景占比（前五类型）</h3>
+          <div id="chartScenes" class="chart chart-tall"></div>
+          <div class="data-note">
+            <strong>数据解读：</strong>刷单返利（25.01%）、虚假投资理财（15.24%）、虚假购物服务（14.14%）合计超过54%，几乎覆盖大学生最常见的三类需求：兼职、理财、消费。冒充公检法仅占6.45%，说明针对青年的诈骗已从"恐吓型"转向"利诱型"——用赚钱、恋爱、低价商品替代威胁。
+          </div>
+        </div>
+
+        <div class="prose summary-block">
+          <h4>本章小结</h4>
+          <p>年轻人成为主要受害者，是人口结构、互联网行为与诈骗产业升级共同作用的结果。识别骗局的关键，是理解骗子如何利用你的"正常需求"——想赚钱、想恋爱、想省钱——将其扭曲为转账理由。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ 十大高发诈骗类型 -->
+    <section class="section" id="types">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-num">03</span>
+          <h2 class="section-head">十大高发电信网络诈骗类型</h2>
+          <p class="section-deck">公安部2024年6月公布 · 十种类型占发案总量近88.4%</p>
+        </header>
+
+        <div class="prose intro-block">
+          <p>2024年6月25日，公安部公布十大高发电信网络诈骗类型。刷单返利是发案量最大、造成损失最多的类型；虚假网络投资理财类个案损失金额最大；虚假购物服务类发案量明显上升，已位居第三。以下排行基于公安部通报及湖北2025年细分数据综合呈现。</p>
+        </div>
+
+        <div class="chart-panel io-chart" data-aos="fade-up">
+          <div id="chartTypesRank" class="chart chart-tall"></div>
+          <div class="data-note">
+            <strong>数据解读：</strong>排行清晰呈现"利诱型"诈骗的主导地位。前三名均以满足经济或消费需求为入口，而非传统意义上的"恐吓"。对大学生而言，尤其需警惕刷单（宿舍群广告）、虚假购物（演唱会门票、二手交易）与游戏装备交易（宿舍同学间传播）三类高发场景。
+          </div>
+        </div>
+
+        <div class="types-cards">
+          <details class="type-detail" open>
+            <summary><span class="rank">1</span> 刷单返利类</summary>
+            <p>变种最多、变化最快。以招募兼职刷单、网络色情诱导刷单为主，先用小额返利博取信任，再以"连单""卡单""解冻"诱骗持续转账。受骗人群：在校学生、低收入群体。</p>
+          </details>
+          <details class="type-detail"><summary><span class="rank">2</span> 虚假网络投资理财类</summary><p>个案损失最大。搭建虚假平台，以"导师带单""内部消息"诱导投资，先小利后大亏。受骗人群：有收入单身人士、炒股爱好者。</p></details>
+          <details class="type-detail"><summary><span class="rank">3</span> 虚假购物服务类</summary><p>发案量快速上升。低价门票、论文代写、奢侈品代购等是年轻群体高发场景。</p></details>
+          <details class="type-detail"><summary><span class="rank">4</span> 冒充电商物流客服类</summary><p>谎称快递丢失、商品违规，诱导下载App或共享屏幕。受骗人群：网购消费者。</p></details>
+          <details class="type-detail"><summary><span class="rank">5</span> 虚假贷款类</summary><p>"无抵押低利率"诱饵，再以保证金、解冻费持续索款。</p></details>
+          <details class="type-detail"><summary><span class="rank">6</span> 虚假征信类</summary><p>冒充金融机构，以"清除不良记录"为由诈骗。</p></details>
+          <details class="type-detail"><summary><span class="rank">7</span> 冒充领导熟人类</summary><p>盗取头像，以紧急借款、代付保证金要求转账。</p></details>
+          <details class="type-detail"><summary><span class="rank">8</span> 冒充公检法及政府机关类</summary><p>伪造法律文书，要求转入"安全账户"。</p></details>
+          <details class="type-detail"><summary><span class="rank">9</span> 网络婚恋交友类</summary><p>"杀猪盘"：先恋爱后投资，小额返利诱导大额投入。</p></details>
+          <details class="type-detail"><summary><span class="rank">10</span> 网络游戏产品虚假交易类</summary><p>低价出售账号装备，收款后拉黑或诱导至假平台。</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ 被骗的24小时 -->
+    <section class="section section-cream" id="cases">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-num">04</span>
+          <h2 class="section-head">被骗的24小时</h2>
+          <p class="section-deck">三个真实案例 · 新闻报道叙事结构</p>
+        </header>
+
+        <div class="case-timeline">
+          <div class="case-block io-reveal" data-aos="fade-up">
+            <div class="case-meta">
+              <span class="case-tag">案例一 · 刷单返利</span>
+              <time>2017年8月 · 山西吕梁</time>
+            </div>
+            <h3>1.5万元生活费，消失在三个"刷单订单"里</h3>
+            <div class="prose case-prose">
+              <p><strong>背景：</strong>2017年8月，吕梁某学院在校大学生张某为减轻家庭负担，在网上寻找兼职。彼时"网络刷单"广告在QQ群、贴吧随处可见——"动动手指、日赚百元"的话术，精准击中了张某的需求。</p>
+              <p><strong>经过：</strong>张某通过QQ认识一名网友，对方称只需完成网络商城"刷信誉、刷销量"任务，便可获得丰厚报酬。张某先后通过微信支付、网页链接、支付宝转账的方式，花费<strong>1.5万余元</strong>完成3个订单。起初流程看似正常：下单、截图、等待返佣。</p>
+              <p><strong>转折：</strong>当张某等待本金和佣金返还时，对方"玩起了失踪"——QQ离线、消息不回、电话空号。1.5万元，是他数月的生活费。</p>
+              <p><strong>结果：</strong>张某报警。离石区公安局立案侦查，抓获犯罪嫌疑人杨某。经查，杨某自2016年起利用刷单诈骗全国各地多名受害人，已被依法刑事拘留。中国网2017年9月7日对此案进行了报道。</p>
+              <p><strong>反思：</strong>刷单本身违法，不存在"合法刷单兼职"。凡是要求垫付资金的兼职，100%是诈骗。小额返利是"钓鱼"而非"赚钱"。</p>
+            </div>
+          </div>
+
+          <div class="case-block io-reveal" data-aos="fade-up">
+            <div class="case-meta">
+              <span class="case-tag">案例二 · AI换脸</span>
+              <time>2023年4月 · 福建福州</time>
+            </div>
+            <h3>10分钟、430万元：当"好友"的脸可以被AI复制</h3>
+            <div class="prose case-prose">
+              <p><strong>背景：</strong>2023年4月20日11时40分，福州市某科技公司法人代表郭先生正在公司办公。他的微信突然弹出好友的视频通话请求——画面里，是熟悉的面孔、熟悉的声音。</p>
+              <p><strong>经过：</strong>好友称自己的朋友在外地投标，需要430万元保证金，需借用郭先生公司账户"公对公过账"。好友发来银行转账底单截图，显示款项已到账。基于视频聊天的信任，郭先生未核实到账情况，于11时49分先后分两笔转出<strong>430万元</strong>。全程约10分钟。</p>
+              <p><strong>转折：</strong>转账后，郭先生给好友发消息确认。好友回复："什么转账？没有这回事。"郭先生拨打好友电话核实，才意识到视频中的"好友"是AI换脸+语音合成的"数字替身"。</p>
+              <p><strong>结果：</strong>福州市公安局与包头警方协作紧急止付，在涉案账户中成功拦截<strong>336.84万元</strong>。福建省公安厅、汕尾市公安局官网均通报了此案。新华网2024年2月将此案作为AI换脸诈骗典型进行普法。</p>
+              <p><strong>反思：</strong>"眼见为实"在AI时代失效。涉及转账，必须通过电话、线下等第二渠道核实——且要主动拨打已知号码，而非使用对方提供的联系方式。</p>
+            </div>
+          </div>
+
+          <div class="case-block io-reveal" data-aos="fade-up">
+            <div class="case-meta">
+              <span class="case-tag">案例三 · 冒充客服</span>
+              <time>2023年 · 多地报道</time>
+            </div>
+            <h3>"您的快递丢了"：一条短信开启的屏幕共享陷阱</h3>
+            <div class="prose case-prose">
+              <p><strong>背景：</strong>冒充电商物流客服是公安部十大高发类型之一。诈骗分子非法获取受害人购物信息，精准说出商品名称、订单号，极大降低受害者警惕。受骗人群多为年轻网购消费者——学生群体是高频受害者。</p>
+              <p><strong>经过：</strong>典型流程如下：受害者接到自称"淘宝/京东客服"的电话或短信，称快递丢失需双倍理赔，或商品涉嫌违规需取消"百万保障"协议。对方引导受害者下载"会议软件"或"理赔App"，要求<strong>共享手机屏幕</strong>，进而窥见银行卡号、验证码，或诱导直接转账。</p>
+              <p><strong>转折：</strong>当受害者发现账户异常扣款时，"客服"已失联。澎湃新闻2024年6月在解读十大高发类型时指出：此类诈骗通过共享屏幕逃避正规平台监管，是近年来针对网购族的重要变种。</p>
+              <p><strong>结果：</strong>各地公安机关持续发布预警：正规电商平台不会通过第三方App理赔，不会要求共享屏幕。2024年，国家反诈中心拦截诈骗短信33.7亿条，但精准话术仍不断突破防线。</p>
+              <p><strong>反思：</strong>接到"客服"电话，应通过官方App联系核实。绝不共享屏幕、绝不透露验证码、绝不点击陌生链接。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 案例流程 SVG -->
+        <div class="flow-diagram io-animate" data-aos="fade-up">
+          <h4>典型诈骗流程（信息图）</h4>
+          <svg viewBox="0 0 800 120" class="flow-svg" aria-label="诈骗流程：引流、信任、诱导、转账、失联">
+            <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#D94841"/></marker></defs>
+            <g class="flow-node"><rect x="10" y="40" width="120" height="40" rx="8" fill="#FFF3E8" stroke="#E8A87C"/><text x="70" y="65" text-anchor="middle" fill="#2C2C2C" font-size="13">引流触达</text></g>
+            <line x1="130" y1="60" x2="160" y2="60" stroke="#D94841" marker-end="url(#arrow)"/>
+            <g class="flow-node"><rect x="160" y="40" width="120" height="40" rx="8" fill="#E8F4F8" stroke="#4A90A4"/><text x="220" y="65" text-anchor="middle" fill="#2C2C2C" font-size="13">建立信任</text></g>
+            <line x1="280" y1="60" x2="310" y2="60" stroke="#D94841" marker-end="url(#arrow)"/>
+            <g class="flow-node"><rect x="310" y="40" width="120" height="40" rx="8" fill="#FCEAE9" stroke="#D94841"/><text x="370" y="65" text-anchor="middle" fill="#2C2C2C" font-size="13">诱导操作</text></g>
+            <line x1="430" y1="60" x2="460" y2="60" stroke="#D94841" marker-end="url(#arrow)"/>
+            <g class="flow-node"><rect x="460" y="40" width="120" height="40" rx="8" fill="#FCEAE9" stroke="#D94841"/><text x="520" y="65" text-anchor="middle" fill="#2C2C2C" font-size="13">转账汇款</text></g>
+            <line x1="580" y1="60" x2="610" y2="60" stroke="#D94841" marker-end="url(#arrow)"/>
+            <g class="flow-node"><rect x="610" y="40" width="120" height="40" rx="8" fill="#F0F0F0" stroke="#999"/><text x="670" y="65" text-anchor="middle" fill="#666" font-size="13">失联拉黑</text></g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑥ 诈骗发展史 -->
+    <section class="section" id="history">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-num">05</span>
+          <h2 class="section-head">诈骗发展史：从短信到AI</h2>
+        </header>
+
+        <div class="history-scrolly">
+          <div class="history-line">
+            <div class="history-node io-reveal"><span class="year">2000s</span><h4>通信诈骗1.0</h4><p>短信中奖、固话欠费、冒充熟人借款。技术简单，但受害者广泛。</p></div>
+            <div class="history-node io-reveal"><span class="year">2010s</span><h4>互联网平台2.0</h4><p>QQ、淘宝钓鱼网站、刷单兼职兴起。诈骗团伙开始向境外转移。</p></div>
+            <div class="history-node io-reveal"><span class="year">2016</span><h4>徐玉玉案</h4><p>准大学生被骗9900元后猝死，推动全社会反诈意识觉醒。</p></div>
+            <div class="history-node io-reveal"><span class="year">2019</span><h4>杀猪盘产业化</h4><p>网络婚恋交友诈骗形成完整产业链，单笔损失动辄数十万。</p></div>
+            <div class="history-node io-reveal"><span class="year">2022</span><h4>《反电信网络诈骗法》</h4><p>我国首部专门反诈法律施行，构建全链条治理体系。</p></div>
+            <div class="history-node io-reveal"><span class="year">2023+</span><h4>AI深度伪造4.0</h4><p>换脸、语音合成、AI视频会议。2023年全国至少16起AI诈骗案（瑞莱智慧统计）。</p></div>
+          </div>
+        </div>
+
+        <div class="chart-panel io-chart" data-aos="fade-up">
+          <h3>网络诈骗形态演进指数（示意）</h3>
+          <div id="chartHistory" class="chart"></div>
+          <div class="data-note">
+            <strong>数据解读：</strong>该指数综合公安部通报、媒体报道与学术文献整理，反映诈骗技术复杂度与精准度变化，非官方统计口径。2018年后指数陡升，与杀猪盘、境外园区、GOIP技术相关；2023年后AI技术推动指数再次跃升。治理难度从"识别话术"升级为"识别身份真伪"。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑦ AI换脸诈骗专题 -->
+    <section class="section section-ai" id="ai-fraud">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-num">06</span>
+          <h2 class="section-head">专题：AI换脸诈骗——当"眼见为实"失效</h2>
+        </header>
+
+        <article class="prose ai-article">
+          <p class="lead"><strong>背景：</strong>深度伪造（Deepfake）技术通过神经网络学习个人声音、面部表情，合成以假乱真的视频与音频。2023年以来，AI换脸诈骗从"一对一视频"升级为"多人AI视频会议"，香港2亿港元案震惊全球。</p>
+
+          <p><strong>数据展示：</strong>新京报"有理数"基于2023年3月至2025年3月103篇主流媒体报道分析：AI换脸技术使用率近50%，语音合成约40%；冒充类AI诈骗占全部AI诈骗案例的62%。瑞莱智慧统计显示，2023年全国已发生至少16起AI诈骗案件，且呈快速增长趋势。</p>
+
+          <p><strong>数据解读：</strong>AI诈骗的核心突破在于"身份认证"——传统防诈依赖"核实身份"，但AI可以复制任何公开视频中的面孔与声线。香港案例中，骗子从YouTube等公开渠道获取高管影像，在视频会议中伪造CFO及多名同事，仅受害者为真人。福州430万案中，7—10秒短视频足以让企业主转账。技术门槛降低，意味着普通人发布的社交视频都可能成为"训练素材"。</p>
+
+          <p><strong>现象分析：</strong>AI诈骗呈现三特征：一是<strong>冒充熟人/领导</strong>，利用信任关系；二是<strong>缩短核验时间</strong>，以"紧急""信号不好"阻止深入对话；三是<strong>大额对公转账</strong>，单笔损失远超传统电诈。新华网2024年2月报道西安财务人员张女士被AI换脸"老板"骗走186万元，警方紧急止付挽回156万元——即便反应迅速，仍有30万无法追回。</p>
+
+          <p><strong>案例分析：</strong>2024年1月，香港警方披露跨国企业香港分部职员参加"总部CFO"发起的多人视频会议，按指令15次转账共2亿港元，5天后向英国总部求证才发现被骗。警方指出：以往AI换脸多为一对一，此案首次出现"AI高管团队"，可信度大幅上升。腾讯新闻2024年3·15报道将此案称为香港历史上损失最惨重的"变脸"案例。</p>
+
+          <p><strong>识别与防范：</strong>要求对方做挥手、捏鼻子、快速转头等动作——AI换脸在动态动作下易出现面部边缘模糊、闪烁。涉及转账务必通过已知电话二次核实。减少社交平台发布高清正脸视频与原始语音。发现被骗立即拨打110，联系银行止付——黄金时间是转账后30分钟内。</p>
+
+          <p><strong>小结：</strong>AI诈骗不是科幻，而是已落地的大规模犯罪。对年轻人而言，不仅是"别信陌生人"，更是"别信视频里的熟人"——除非你已经通过独立渠道确认了对方的身份。</p>
+        </article>
+
+        <div class="chart-panel io-chart" data-aos="fade-up">
+          <h3>AI相关诈骗类型分布（基于103篇报道分析）</h3>
+          <div id="chartAI" class="chart"></div>
+          <div class="data-note">
+            <strong>数据解读：</strong>冒充类占62%，说明AI当前主要服务于"身份伪造"而非独立新型骗局。金融投资类占20%，多与"杀猪盘+AI换脸"复合相关。这意味着防AI诈骗的核心仍是：任何涉及资金的操作，必须脱离当前通信渠道进行交叉验证。
+          </div>
+        </div>
+
+        <div class="chart-panel io-chart" data-aos="fade-up">
+          <h3>AI诈骗公开报道数量趋势</h3>
+          <div id="chartAIGrowth" class="chart"></div>
+          <div class="data-note">
+            <strong>数据解读：</strong>数据综合瑞莱智慧2023年"至少16起"统计、新京报103篇报道样本及新华网、公安部公开案例整理。2024—2025年报道量显著上升，与Deepfake工具开源化、短视频平台人脸数据积累相关。需说明：公开报道数低于实际发案数，该图反映"可见度"而非完整发案统计。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑧ 受害者画像 -->
+    <section class="section section-cream" id="profile">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-num">07</span>
+          <h2 class="section-head">受害者画像：数据看见"谁"在受骗</h2>
+        </header>
+
+        <div class="prose intro-block">
+          <p>2025年3月30日，湖北省公安厅发布全省电信网络诈骗受骗人精准画像。从年龄、性别、场景、转账方式等维度，呈现当前电诈受害群体的真实面貌——打破"只有老年人被骗"的刻板印象。</p>
+        </div>
+
+        <div class="profile-grid">
+          <div class="chart-panel io-chart" data-aos="fade-up">
+            <h3>年龄结构（湖北2025）</h3>
+            <div id="chartProfileAge" class="chart"></div>
+          </div>
+          <div class="chart-panel io-chart" data-aos="fade-up">
+            <h3>性别分布（湖北2025）</h3>
+            <div id="chartProfileGender" class="chart"></div>
+          </div>
+        </div>
+
+        <div class="profile-facts io-animate">
+          <div class="fact-card"><strong>45.86%</strong><span>16—35岁青年占比</span></div>
+          <div class="fact-card"><strong>21.5%</strong><span>00后占比（↑6.37pp）</span></div>
+          <div class="fact-card"><strong>7岁—95岁</strong><span>受骗年龄跨度</span></div>
+          <div class="fact-card"><strong>30%</strong><span>线下转账占比</span></div>
+        </div>
+
+        <div class="data-note">
+          <strong>数据解读：</strong>青年占近半数，00后占比快速上升，与CNNIC报告中的"青年高互联网普及率"形成呼应。女性占52.56%，但男性占比逐年上升——说明诈骗目标正在从"传统认知中的弱势群体"扩展到全体网民。线下转账占30%、大额案件占70%，表明诈骗分子正刻意规避银行线上风控，转向现金、黄金寄递等方式。
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑨ 词云 -->
+    <section class="section" id="wordcloud">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-num">08</span>
+          <h2 class="section-head">诈骗关键词词云</h2>
+          <p class="section-deck">看到这些词，请立刻警惕</p>
+        </header>
+        <div id="chartWordCloud" class="chart chart-wordcloud io-chart"></div>
+        <div class="prose summary-block">
+          <p>词云词汇综合公安部十大类型通报、国家反诈中心预警话术及103篇AI诈骗报道提取。高频词从"安全账户""通缉令"等恐吓型，转向"刷单返利""内部消息""视频会议"等利诱型——话术演变本身，就是诈骗产业升级的缩影。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 互动模块区 -->
+    <section class="section section-interactive section-cream" id="interactive">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-num">09</span>
+          <h2 class="section-head">互动体验：在模拟中学会识别</h2>
+          <p class="section-deck">8组互动模块 · 零风险体验诈骗场景</p>
+        </header>
+
+        <!-- 互动1：风险测试 -->
+        <div class="interactive-module" id="quiz-risk">
+          <h3>互动1 · 你会成为诈骗目标吗？</h3>
+          <p class="module-desc">完成6道选择题，评估你的诈骗风险等级。</p>
+          <div id="riskQuiz" class="quiz-container"></div>
+          <div id="riskResult" class="quiz-result hidden"></div>
+        </div>
+
+        <!-- 互动2：聊天模拟 -->
+        <div class="interactive-module" id="chat-sim">
+          <h3>互动2 · 诈骗模拟聊天</h3>
+          <p class="module-desc">模拟微信对话场景：对方称是"辅导员"，要求帮忙转账。你的选择将决定结局。</p>
+          <div class="wechat-sim">
+            <div class="wechat-header">辅导员-王老师</div>
+            <div class="wechat-body" id="chatBody"></div>
+            <div class="wechat-options" id="chatOptions"></div>
+          </div>
+        </div>
+
+        <!-- 互动3：短信挑战 -->
+        <div class="interactive-module" id="sms-challenge">
+          <h3>互动3 · 真假短信挑战</h3>
+          <p class="module-desc">判断以下5条短信是真实通知还是诈骗。</p>
+          <div id="smsChallenge" class="sms-list"></div>
+          <div id="smsScore" class="quiz-result hidden"></div>
+        </div>
+
+        <!-- 互动4：金额计算器 -->
+        <div class="interactive-module" id="calc-loss">
+          <h3>互动4 · 被骗金额计算器</h3>
+          <p class="module-desc">输入你的经济状况，计算若被骗15000元，需要多久才能弥补。</p>
+          <div class="calc-form">
+            <label>月生活费/可支配收入（元）<input type="number" id="calcLiving" value="1500" min="0"></label>
+            <label>当前存款（元）<input type="number" id="calcSaving" value="3000" min="0"></label>
+            <label>月兼职/额外收入（元）<input type="number" id="calcIncome" value="500" min="0"></label>
+            <button type="button" id="calcBtn" class="btn-primary">计算损失影响</button>
+          </div>
+          <div id="calcResult" class="calc-result hidden"></div>
+        </div>
+
+        <!-- 互动5：AI识别 -->
+        <div class="interactive-module" id="ai-challenge">
+          <h3>互动5 · AI换脸识别挑战</h3>
+          <p class="module-desc">以下4组人物影像中，哪一个是AI合成？（基于公开案例整理的示意图像）</p>
+          <div id="aiChallenge" class="ai-challenge-grid"></div>
+          <div id="aiChallengeResult" class="quiz-result hidden"></div>
+        </div>
+
+        <!-- 互动6：反诈闯关 -->
+        <div class="interactive-module" id="anti-quiz">
+          <h3>互动6 · 反诈知识闯关</h3>
+          <p class="module-desc">连续答对4关，获得《网络反诈达人》证书。</p>
+          <div id="antiQuiz" class="quiz-container"></div>
+          <div id="certDisplay" class="cert-display hidden">
+            <div class="cert-card" id="certCard">
+              <h4>网络反诈达人</h4>
+              <p>恭喜你完成全部关卡！</p>
+              <span class="cert-date" id="certDate"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 互动7：路径地图 -->
+        <div class="interactive-module" id="fraud-map">
+          <h3>互动7 · 诈骗路径互动地图</h3>
+          <p class="module-desc">点击路径节点，逐步了解刷单诈骗的完整链条。</p>
+          <div class="fraud-map">
+            <div class="map-nodes" id="mapNodes"></div>
+            <div class="map-detail" id="mapDetail">点击左侧节点开始探索</div>
+          </div>
+        </div>
+
+        <!-- 互动8：互动墙 -->
+        <div class="interactive-module" id="poll-wall">
+          <h3>互动8 · 你收到过诈骗信息吗？</h3>
+          <p class="module-desc">选择你的经历，查看模拟统计结果（本地聚合，不涉及服务器）。</p>
+          <div class="poll-options">
+            <button type="button" class="poll-btn" data-poll="often">经常收到</button>
+            <button type="button" class="poll-btn" data-poll="sometimes">偶尔收到</button>
+            <button type="button" class="poll-btn" data-poll="never">从未收到</button>
+          </div>
+          <div id="pollChart" class="chart chart-poll hidden"></div>
+          <p class="poll-note" id="pollNote"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑩ 防诈指南 -->
+    <section class="section" id="guide">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-num">10</span>
+          <h2 class="section-head">防诈指南：把防线建在转账之前</h2>
+        </header>
+
+        <div class="guide-grid">
+          <article class="guide-item" data-aos="fade-up">
+            <span class="guide-num">01</span>
+            <h3>安装国家反诈中心App</h3>
+            <p>开启来电预警、短信预警。2024年，国家反诈中心下发资金预警指令183.8万条，拦截诈骗电话46.9亿次。</p>
+          </article>
+          <article class="guide-item" data-aos="fade-up" data-aos-delay="80">
+            <span class="guide-num">02</span>
+            <h3>牢记"三不一多"</h3>
+            <p>未知链接不点击、陌生来电不轻信、个人信息不透露、转账汇款多核实——公安部面向全民的核心口诀。</p>
+          </article>
+          <article class="guide-item" data-aos="fade-up" data-aos-delay="160">
+            <span class="guide-num">03</span>
+            <h3>拒绝一切刷单</h3>
+            <p>刷单违法，不存在合法兼职。凡是垫付资金的任务，100%是诈骗。</p>
+          </article>
+          <article class="guide-item" data-aos="fade-up" data-aos-delay="240">
+            <span class="guide-num">04</span>
+            <h3>视频也要核实</h3>
+            <p>AI可伪造视频通话。转账前通过已知号码主动联系对方确认。</p>
+          </article>
+          <article class="guide-item" data-aos="fade-up" data-aos-delay="320">
+            <span class="guide-num">05</span>
+            <h3>拒绝"安全账户"</h3>
+            <p>公检法机关不会电话办案，不存在"安全账户"。</p>
+          </article>
+          <article class="guide-item" data-aos="fade-up" data-aos-delay="400">
+            <span class="guide-num">06</span>
+            <h3>被骗立即报警</h3>
+            <p>拨打110或96110，第一时间联系银行止付。转账后30分钟是黄金救援期。</p>
+          </article>
+        </div>
+
+        <div class="emergency-banner">
+          <p>全国反诈专线 <strong>96110</strong> · 报警电话 <strong>110</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑪ 参考文献 -->
+    <section class="section section-cream" id="refs">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-num">11</span>
+          <h2 class="section-head">参考文献与数据来源</h2>
+        </header>
+        <ol class="refs-list">
+          <li>公安部新闻发布会，《2025年全国共侦破电信网络诈骗案件25.8万起》，新华网，2026-01-08。https://www.news.cn/20260108/d0e8977f974f4aadb759b37ae60a87f7/c.html</li>
+          <li>央视网，《公安部：2024年共破获电信网络诈骗案件29.4万起》，2025-06-16。https://news.cctv.com/2025/06/16/ARTIO1lBEuqPzlU9wkZLP4PU250616.shtml</li>
+          <li>公安部，《十大高发电信网络诈骗类型》，中国新闻网，2024-06-25。https://www.chinanews.com.cn/gn/2024/06-25/10240001.shtml</li>
+          <li>湖北省公安厅新闻发布会，《2025年电诈精准画像：00后成主要目标群体》，湖北日报，2025-03-30。https://news.hubeidaily.net/pc/c_5320956.html</li>
+          <li>中国互联网络信息中心，《第55次中国互联网络发展状况统计报告》，2025-01-17。https://www.cnnic.net.cn/n4/2025/0117/c88-11229.html</li>
+          <li>中国新闻网，《中国网民规模达11.08亿人 互联网普及率达78.6%》，2025-01-17。https://www.chinanews.com/gn/2025/01-17/10355387.shtml</li>
+          <li>共青团中央，《青年发展统计监测情况》，2024年度。https://www.gqt.org.cn/xxgk/qnfz/202209/t20220921_789722.htm</li>
+          <li>中国网，《大学生兼职"网络刷单" 被骗1.5万元生活费》，2017-09-07。http://www.china.com.cn/txt/2017-09/07/content_41544681.htm</li>
+          <li>新华网，《防范"AI换脸"诈骗 你需要的知识都在这儿了》，2024-02-26。http://www.news.cn/legal/20240226/da985bba58bf4ea2a65b872d06aec6a5/c.html</li>
+          <li>汕尾市公安局，《AI换脸新骗局！有人10分钟被骗430万》，福建省公安厅通报。https://www.shanwei.gov.cn/gdsw110/ywyw/jwyw/content/post_924837.html</li>
+          <li>新京报，《10分钟被骗430万，被AI诈骗的不止老年人》，2025。https://m.bjnews.com.cn/detail/1741919527129116.html</li>
+          <li>腾讯新闻，《深度伪造骗局：当AI技术成为诈骗工具》，2024-03-15。https://news.qq.com/rain/a/20240315A030IR00</li>
+          <li>澎湃新闻，《十大高发电诈类型：诈骗分子冒充民警、领导熟人、物流客服等》，2024-06-25。https://www.thepaper.cn/newsDetail_forward_27848403</li>
+          <li>《中华人民共和国反电信网络诈骗法》，2022年9月2日通过，2022年12月1日起施行。</li>
+        </ol>
+
+        <footer class="site-footer">
+          <p class="footer-title">被骗的年轻人：网络诈骗离我们有多近？</p>
+          <p>数据新闻专题 · 仅供新闻传播专业学习与研究 · 数据以官方发布为准</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.1.0/dist/echarts-wordcloud.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
