@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>🍔 外卖人格鉴定所</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background-color: #FFF8F0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  min-height: 600px;
+  position: relative;
+}
+
+/* 页面切换动画 */
+.page {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.page.active {
+  display: block;
+  opacity: 1;
+}
+
+.page.fade-out {
+  opacity: 0;
+}
+
+/* ========== 首页 ========== */
+.home-page {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.home-emoji {
+  font-size: 80px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.home-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #FF7A00;
+  margin-bottom: 8px;
+}
+
+.home-subtitle {
+  font-size: 16px;
+  color: #999;
+  margin-bottom: 24px;
+}
+
+.home-desc {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 36px;
+  padding: 0 10px;
+}
+
+.btn-start {
+  display: inline-block;
+  background-color: #FF7A00;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 14px 48px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(255,122,0,0.3);
+}
+
+.btn-start:active {
+  transform: scale(0.96);
+}
+
+.home-footer {
+  margin-top: 28px;
+  font-size: 13px;
+  color: #bbb;
+}
+
+/* ========== 答题页 ========== */
+.quiz-page {
+  padding: 24px 20px 120px;
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.quiz-progress-text {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* 进度条区域 */
+.progress-area {
+  margin-bottom: 12px;
+}
+
+.progress-label {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 6px;
+  text-align: right;
+}
+
+.progress-bar-wrapper {
+  position: relative;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #eee;
+  border-radius: 10px;
+  overflow: visible;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #FF7A00, #FFD000);
+  transition: width 0.4s ease;
+  position: relative;
+}
+
+.progress-emoji {
+  position: absolute;
+  top: -14px;
+  font-size: 28px;
+  transform: translateX(-50%);
+  transition: left 0.4s ease;
+  line-height: 1;
+  z-index: 2;
+}
+
+/* 题目区域 */
+.question-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 28px 0 24px;
+  line-height: 1.6;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 2px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.option-card:active {
+  transform: scale(0.98);
+}
+
+.option-card.selected {
+  border-color: #FF7A00;
+  background-color: #FFF0E0;
+}
+
+.option-card .option-letter {
+  font-weight: bold;
+  font-size: 16px;
+  color: #ccc;
+  margin-right: 12px;
+  min-width: 24px;
+  transition: color 0.3s;
+}
+
+.option-card.selected .option-letter {
+  color: #FF7A00;
+}
+
+.option-card .option-text {
+  font-size: 15px;
+  color: #444;
+  flex: 1;
+  line-height: 1.5;
+}
+
+.option-card .check-icon {
+  font-size: 20px;
+  color: #FF7A00;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+  margin-left: 8px;
+}
+
+.option-card.selected .check-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 底部固定进度条 */
+.quiz-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 16px 20px 24px;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
+  z-index: 10;
+}
+
+.quiz-bottom-bar .progress-area {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ========== 结果页 ========== */
+.result-page {
+  text-align: center;
+  padding: 20px 20px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 撒花动画 */
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 16px;
+  border-radius: 3px;
+  animation: confettiFall linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-60px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(700px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.result-content {
+  position: relative;
+  z-index: 2;
+}
+
+.result-emoji {
+  font-size: 64px;
+  margin-bottom: 12px;
+}
+
+.result-label {
+  font-size: 32px;
+  font-weight: bold;
+  color: #FF7A00;
+  margin-bottom: 24px;
+}
+
+.result-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.result-portrait {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.result-portrait strong {
+  color: #333;
+  font-size: 16px;
+}
+
+.result-motto {
+  font-size: 15px;
+  color: #FF7A00;
+  font-weight: bold;
+  margin-bottom: 16px;
+  padding: 10px 16px;
+  background: #FFF0E0;
+  border-radius: 12px;
+}
+
+.result-roast {
+  font-size: 14px;
+  color: #888;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.result-score {
+  font-size: 13px;
+  color: #bbb;
+  margin-bottom: 28px;
+}
+
+.result-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-retry {
+  flex: 1;
+  max-width: 160px;
+  padding: 14px 0;
+  background: #fff;
+  color: #FF7A00;
+  border: 2px solid #FF7A00;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-retry:active {
+  background: #FFF0E0;
+  transform: scale(0.96);
+}
+
+.btn-share {
+  flex: 1;
+  max-width: 160px;
+  padding: 14px 0;
+  background: #FF7A00;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(255,122,0,0.3);
+}
+
+.btn-share:active {
+  transform: scale(0.96);
+}
+
+/* Toast 提示 */
+.toast {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.78);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+.toast.show {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ========== 首页 ========== -->
+  <div class="page home-page active" id="homePage">
+    <div class="home-emoji">🍔</div>
+    <h1 class="home-title">外卖人格鉴定所</h1>
+    <p class="home-subtitle">揭露你在外卖APP里的真实嘴脸</p>
+    <p class="home-desc">只需12道题，看穿你是佛系菩萨还是暴躁干饭人</p>
+    <button class="btn-start" onclick="startQuiz()">开始点单</button>
+    <p class="home-footer">全程约2分钟 · 答案没有对错</p>
+  </div>
+
+  <!-- ========== 答题页 ========== -->
+  <div class="page quiz-page" id="quizPage">
+    <div class="quiz-header">
+      <span class="quiz-progress-text" id="questionIndex">第 1 / 12 题</span>
+    </div>
+
+    <!-- 上方进度条 -->
+    <div class="progress-area" id="progressTop">
+      <div class="progress-label">干饭进度：<span id="percentLabel">0</span>%</div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFillTop" style="width: 0%"></div>
+        </div>
+        <div class="progress-emoji" id="progressEmojiTop" style="left: 0%">🍔</div>
+      </div>
+    </div>
+
+    <p class="question-text" id="questionText"></p>
+    <div class="options-list" id="optionsList"></div>
+
+    <!-- 底部固定进度条 -->
+    <div class="quiz-bottom-bar" id="bottomBar">
+      <div class="progress-area">
+        <div class="progress-label">干饭进度：<span id="percentLabelBottom">0</span>%</div>
+        <div class="progress-bar-wrapper">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFillBottom" style="width: 0%"></div>
+          </div>
+          <div class="progress-emoji" id="progressEmojiBottom" style="left: 0%">🍔</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 结果页 ========== -->
+  <div class="page result-page" id="resultPage">
+    <div class="confetti-container" id="confettiContainer"></div>
+    <div class="result-content">
+      <div class="result-emoji">🎉</div>
+      <h2 class="result-label" id="resultLabel"></h2>
+      <div class="result-card">
+        <p class="result-portrait" id="resultPortrait"></p>
+        <p class="result-motto" id="resultMotto"></p>
+        <p class="result-roast" id="resultRoast"></p>
+      </div>
+      <p class="result-score" id="resultScore"></p>
+      <div class="result-buttons">
+        <button class="btn-retry" onclick="restartQuiz()">🔄 再测一次</button>
+        <button class="btn-share" onclick="shareResult()">📤 分享结果</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ========== 题目数据 ==========
+const questions = [
+  {
+    q: "你打开外卖APP翻了40分钟还没选好，最后你？",
+    options: ["回到第一家闭眼点", "不吃了正好减肥", "截图让朋友帮你选"]
+  },
+  {
+    q: "外卖超时20分钟，骑手说"再等5分钟"，你？",
+    options: ["好的好的不急（咬牙）", "投诉但取消", "直接退款说吃过了"]
+  },
+  {
+    q: "送来一份香菜拉满的你最讨厌的餐，你？",
+    options: ["一根根挑出来含泪吃完", "拍照发帖避雷然后饿着", "送给同事说专门给你点的"]
+  },
+  {
+    q: "外卖包装里有一根头发，你会？",
+    options: ["假装没看见继续吃", "拍照留证但懒得索赔", "五星好评写"建议老板戴帽子""]
+  },
+  {
+    q: "外卖到了但你在开重要的线上会，你？",
+    options: ["静音边吃边开", "放着等开完吃凉的", "说"有事"先干饭"]
+  },
+  {
+    q: "奶茶少送了一份小料，你会？",
+    options: ["算了下次不点了", "找客服退款3块钱也是钱", "给差评写800字小作文"]
+  },
+  {
+    q: "外卖小哥说"找不到你的楼"，你？",
+    options: ["耐心描述说没事慢慢来", "有点烦但下楼去接", ""你导航啊这都找不到？""]
+  },
+  {
+    q: "同事同款餐比你便宜8块钱，你？",
+    options: ["心里不舒服但算了", "马上问同事要优惠券", "截图找客服退差价"]
+  },
+  {
+    q: "餐到了但包装压烂食物洒了一半，你？",
+    options: ["拍照发朋友圈吐槽然后吃剩下的", "直接申请全额退款", "打电话理论要求重送"]
+  },
+  {
+    q: "连续三天点同一家同一款，你会？",
+    options: ["毫无感觉好吃就一直吃", "有点腻了但懒得换", "开始怀疑人生是不是太单调了"]
+  },
+  {
+    q: "点"微辣"送来是特辣，你？",
+    options: ["边哭边吃喝完两瓶水", "扔了重新点不辣的", "觉得赚了特辣不加钱"]
+  },
+  {
+    q: "APP推送"你可能喜欢"的店铺，你？",
+    options: ["看一圈回到老店", "直接无视只吃收藏的", "每次都尝试新店踩雷无所谓"]
+  }
+];
+
+// 计分：A=3, B=2, C=1
+const results = [
+  { min: 12, max: 16, label: "佛系干饭菩萨", portrait: "什么都行不挑不拣，活着就好", motto: "能吃饱就是福", roast: "你的人生就像外卖备注——"随便"，但每次都吃得很香" },
+  { min: 17, max: 20, label: "纠结型干饭人", portrait: "选择困难晚期，点餐时长>吃饭时长", motto: "我到底吃啥？", roast: "你花40分钟选外卖，最后吃了第一眼看的那家" },
+  { min: 21, max: 24, label: "精致维权侠", portrait: "钱可以花，亏不能吃", motto: "该我的，一分不能少", roast: "你的手机相册里全是外卖瑕疵照片，但80%都没索赔" },
+  { min: 25, max: 28, label: "外卖战略家", portrait: "优惠券算得比高数还精", motto: "不省到极致就是亏", roast: "你为了凑满减多点了三个菜，最后吃了两顿" },
+  { min: 29, max: 32, label: "暴躁外卖狂", portrait: "迟到一秒都想报警但心软取消投诉", motto: "我恨这个世界——但算了", roast: "你的情绪波动完全取决于外卖配送时长" },
+  { min: 33, max: 36, label: "外卖教父/教母", portrait: "点餐如点兵，30秒搞定", motto: "效率就是生命", roast: "你收藏的店铺比通讯录好友还多，每个都备注了必点菜" }
+];
+
+// ========== 状态变量 ==========
+let currentQuestion = 0;
+let totalScore = 0;
+let answers = []; // 记录每题得分
+
+// ========== 页面切换 ==========
+function switchPage(fromId, toId) {
+  const fromEl = document.getElementById(fromId);
+  const toEl = document.getElementById(toId);
+
+  fromEl.classList.add('fade-out');
+  fromEl.classList.remove('active');
+
+  setTimeout(() => {
+    fromEl.style.display = 'none';
+    fromEl.classList.remove('fade-out');
+
+    toEl.style.display = 'block';
+    // 强制回流
+    toEl.offsetHeight;
+    toEl.classList.add('active');
+  }, 400);
+}
+
+// ========== 开始答题 ==========
+function startQuiz() {
+  currentQuestion = 0;
+  totalScore = 0;
+  answers = [];
+  switchPage('homePage', 'quizPage');
+  renderQuestion();
+}
+
+// ========== 渲染题目 ==========
+function renderQuestion() {
+  const q = questions[currentQuestion];
+  document.getElementById('questionIndex').textContent = `第 ${currentQuestion + 1} / 12 题`;
+  document.getElementById('questionText').textContent = q.q;
+
+  const optionsList = document.getElementById('optionsList');
+  const letters = ['A', 'B', 'C'];
+  optionsList.innerHTML = '';
+
+  q.options.forEach((opt, i) => {
+    const card = document.createElement('div');
+    card.className = 'option-card';
+    card.innerHTML = `
+      <span class="option-letter">${letters[i]}</span>
+      <span class="option-text">${opt}</span>
+      <span class="check-icon">✅</span>
+    `;
+    card.addEventListener('click', () => selectOption(i, card));
+    optionsList.appendChild(card);
+  });
+
+  // 更新进度条
+  updateProgress(currentQuestion);
+}
+
+// ========== 选择选项 ==========
+function selectOption(index, card) {
+  // 防止重复选择
+  const allCards = document.querySelectorAll('.option-card');
+  if (allCards[0].classList.contains('selected') ||
+      allCards[1].classList.contains('selected') ||
+      allCards[2].classList.contains('selected')) {
+    return;
+  }
+
+  // 标记选中
+  allCards.forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+
+  // 计分：A=3, B=2, C=1
+  const score = 3 - index;
+  totalScore += score;
+  answers.push(score);
+
+  // 延迟300ms进入下一题
+  setTimeout(() => {
+    currentQuestion++;
+    if (currentQuestion >= questions.length) {
+      switchPage('quizPage', 'resultPage');
+      showResult();
+    } else {
+      renderQuestion();
+    }
+  }, 300);
+}
+
+// ========== 更新进度条 ==========
+function updateProgress(questionIndex) {
+  const progress = Math.round((questionIndex / questions.length) * 100);
+  const percentText = progress;
+
+  // 上方进度条
+  document.getElementById('percentLabel').textContent = percentText;
+  document.getElementById('progressFillTop').style.width = progress + '%';
+  document.getElementById('progressEmojiTop').style.left = progress + '%';
+
+  // 底部进度条
+  document.getElementById('percentLabelBottom').textContent = percentText;
+  document.getElementById('progressFillBottom').style.width = progress + '%';
+  document.getElementById('progressEmojiBottom').style.left = progress + '%';
+}
+
+// ========== 显示结果 ==========
+function showResult() {
+  // 更新最终进度到100%
+  document.getElementById('percentLabel').textContent = '100';
+  document.getElementById('progressFillTop').style.width = '100%';
+  document.getElementById('progressEmojiTop').style.left = '100%';
+  document.getElementById('percentLabelBottom').textContent = '100';
+  document.getElementById('progressFillBottom').style.width = '100%';
+  document.getElementById('progressEmojiBottom').style.left = '100%';
+
+  // 查找匹配结果
+  let result = null;
+  for (const r of results) {
+    if (totalScore >= r.min && totalScore <= r.max) {
+      result = r;
+      break;
+    }
+  }
+
+  if (!result) {
+    // 兜底
+    result = results[0];
+  }
+
+  document.getElementById('resultLabel').textContent = `【${result.label}】`;
+  document.getElementById('resultPortrait').innerHTML = `<strong>画像：</strong>${result.portrait}`;
+  document.getElementById('resultMotto').textContent = `人生格言：${result.motto}`;
+  document.getElementById('resultRoast').textContent = `🔍 ${result.roast}`;
+  document.getElementById('resultScore').textContent = `总得分：${totalScore} 分`;
+
+  // 撒花动画
+  createConfetti();
+
+  // 控制台日志
+  console.log('外卖人格鉴定完成');
+}
+
+// ========== 撒花动画 ==========
+function createConfetti() {
+  const container = document.getElementById('confettiContainer');
+  container.innerHTML = '';
+
+  const colors = ['#FF7A00', '#FFD000', '#FF4757', '#2ED573', '#1E90FF', '#FF6B81', '#7158E2', '#FF9FF3'];
+
+  for (let i = 0; i < 40; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    piece.style.animationDelay = Math.random() * 2 + 's';
+    piece.style.width = (Math.random() * 6 + 6) + 'px';
+    piece.style.height = (Math.random() * 8 + 12) + 'px';
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '3px';
+    container.appendChild(piece);
+  }
+}
+
+// ========== 重新测试 ==========
+function restartQuiz() {
+  currentQuestion = 0;
+  totalScore = 0;
+  answers = [];
+  updateProgress(0);
+  switchPage('resultPage', 'quizPage');
+  renderQuestion();
+}
+
+// ========== 分享结果 ==========
+function shareResult() {
+  const label = document.getElementById('resultLabel').textContent;
+  const roastEl = document.getElementById('resultRoast');
+  const roast = roastEl ? roastEl.textContent.replace('🔍 ', '') : '';
+
+  const shareText = `我测出是${label}！${roast} 你也来测测：${window.location.href}`;
+
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(shareText).then(() => {
+      showToast('已复制！快发朋友圈羞辱自己');
+    }).catch(() => {
+      showToast('复制失败，请手动复制');
+    });
+  } else {
+    // 降级方案
+    const textarea = document.createElement('textarea');
+    textarea.value = shareText;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      showToast('已复制！快发朋友圈羞辱自己');
+    } catch (e) {
+      showToast('复制失败，请手动复制');
+    }
+    document.body.removeChild(textarea);
+  }
+}
+
+// ========== Toast ==========
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2000);
+}
+</script>
+
+</body>
+</html>
